@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `peminjaman` ADD COLUMN `status` VARCHAR(191) NOT NULL DEFAULT 'DIPINJAM';
