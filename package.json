@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "prisma:deploy": "prisma migrate deploy",
-    "postinstall": "[ -z \"$DATABASE_URL\" ] || prisma generate",
+    "postinstall": "DATABASE_URL=${DATABASE_URL:-mysql://root:root@localhost:3306/perpusts} prisma generate",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
