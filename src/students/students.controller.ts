@@ -18,7 +18,6 @@ import { RolesGuard } from 'src/auth/guards/roles.guard';
 import { Req } from '@nestjs/common';
 import { Request } from 'express';
 
-
 @Controller('students')
 export class StudentsController {
   constructor(private readonly studentsService: StudentsService) {}
@@ -32,12 +31,12 @@ export class StudentsController {
 
   @Get('name/:name')
   findByName(@Param('name') name: string) {
-    return this.studentsService.findbyName(name);
+    return this.studentsService.findByName(name);
   }
 
   @Get('nis/:nis')
-  findbyNis(@Param('nis') nis: string) {
-    return this.studentsService.findbyNis(nis);
+  findByNis(@Param('nis') nis: string) {
+    return this.studentsService.findByNis(nis);
   }
 
   @Get()
