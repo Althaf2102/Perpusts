@@ -8,7 +8,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  
+  DATABASE_URL="mysql://root:@localhost:3306/nest_prisma"
 }
 
 model student {
