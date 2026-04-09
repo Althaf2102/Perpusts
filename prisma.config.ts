@@ -11,6 +11,7 @@ export default defineConfig({
   },
   
   datasource: {
-    url: env("//root:@localhost:3306/nest_prisma"),
+  url: env("DATABASE_URL"),
+},
   },
-});
+);

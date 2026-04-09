@@ -7,7 +7,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "prisma:deploy": "prisma migrate deploy",
-    "postinstall": "export DATABASE_URL=${DATABASE_URL:-mysql://root:root@localhost:3306/dummy} && prisma generate",
+    "postinstall": "prisma generate",
+    "prisma:generate": "prisma generate",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
@@ -23,7 +24,7 @@
   },
   "dependencies": {
     "@nestjs/common": "^11.1.18",
-    "@nestjs/config": "^1.1.5",
+    "@nestjs/config": "^4.0.3",
     "@nestjs/core": "^11.1.18",
     "@nestjs/jwt": "^11.0.2",
     "@nestjs/mapped-types": "*",
