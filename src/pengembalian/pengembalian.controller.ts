@@ -1,10 +1,11 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { PengembalianService } from './pengembalian.service';
 import { CreatepengembalianDto } from './dto/create-pengembalian.dto';
-import { UpdatepengembalianDto } from './dto/update-pengembalian.dto';import { Roles } from 'src/auth/decorators/roles.decorator';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import { UpdatepengembalianDto } from './dto/update-pengembalian.dto';
 import { UserRole } from '@prisma/client';
-import { RolesGuard } from 'src/auth/guards/roles.guard';
+import { Roles } from '../auth/decorators/roles.decorator';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../auth/guards/roles.guard';
 
 
 
