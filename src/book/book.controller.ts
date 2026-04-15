@@ -14,15 +14,11 @@ import { UserRole } from '@prisma/client';
 @Controller('book')
 export class BookController {
   constructor(private readonly bookService: BookService) {}
-
-
-
-
-
+  
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(UserRole.ADMIN, UserRole.PETUGAS)
   @Post()
-  @ApiOperation({ summary: 'Menambahkan buku (ADMIN only)' })
+  @ApiOperation({ summary: 'Menambahkan buku (ADMIN dan petugas)' })
   create(@Body() dto: CreatebookDto) {
     return this.bookService.create(dto);
   }

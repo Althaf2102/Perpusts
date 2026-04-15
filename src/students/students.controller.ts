@@ -8,6 +8,7 @@ import {
   Put,
   UseGuards,
 } from '@nestjs/common';
+import { ApiTags, ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
 import { StudentsService } from './students.service';
 import { CreateStudentDto } from './dto/create-student.dto';
 import { UpdateStudentDto } from './dto/update-student.dto';
@@ -18,6 +19,8 @@ import { RolesGuard } from '../auth/guards/roles.guard';
 import { Req } from '@nestjs/common';
 import { Request } from 'express';
 
+@ApiTags('Students')
+@ApiBearerAuth()
 @Controller('students')
 export class StudentsController {
   constructor(private readonly studentsService: StudentsService) {}
@@ -25,6 +28,7 @@ export class StudentsController {
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(UserRole.ADMIN)
   @Post()
+   @ApiOperation({ summary: 'Menambahkan buku (ADMIN only)' })
   create(@Body() dto: CreateStudentDto, @Req() req: Request) {
     return this.studentsService.create(dto, (req as any).user.role);
   }
