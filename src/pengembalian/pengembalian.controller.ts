@@ -11,7 +11,7 @@ import { ApiTags, ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
 
 
 
-
+@ApiTags('Pengembalian')
 @ApiBearerAuth()
 @Controller('pengembalian')
 
