@@ -6,11 +6,13 @@ import { UserRole } from '@prisma/client';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
+import { ApiTags, ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
 
 
 
 
 
+@ApiBearerAuth()
 @Controller('pengembalian')
 
 export class PengembalianController {
@@ -21,6 +23,7 @@ export class PengembalianController {
 @UseGuards(JwtAuthGuard, RolesGuard)
 @Roles(UserRole.ADMIN, UserRole.PETUGAS)
   @Post()
+   @ApiOperation({ summary: 'Menambahkan buku (ADMIN dan petugas)' })
   create(@Body() dto: CreatepengembalianDto) {
     return this.pengembalianService.create(dto);
   }
