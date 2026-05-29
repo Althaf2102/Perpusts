@@ -19,8 +19,7 @@ async function bootstrap() {
   SwaggerModule.setup('api', app as any, document);
 
 
-  const port = process.env.PORT || 3000;
-await app.listen(port, '0.0.0.0');
-console.log(`App running on port ${port}`);
+  // Sederhana, bersih, dan tidak memicu error TypeScript
+await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
